@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup, getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
@@ -30,4 +29,29 @@ const signInWithGoogle = async () => {
         throw error;
     }
 };
-export { db, auth, signInWithGoogle };
+
+const signInWithEmail = async (email, password) => {
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        console.log('User signed in with email:', user);
+        return user;
+    } catch (error) {
+        console.error('Error signing in with email:', error);
+        throw error;
+    }
+}
+
+const signUpWithEmail = async (email, password) => {
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        console.log('User signed up with email:', user);
+        return user;
+    } catch (error) {
+        console.error('Error signing up with email:', error);
+        throw error;
+    }
+}
+
+export { db, auth, signInWithGoogle, signInWithEmail, signUpWithEmail };
