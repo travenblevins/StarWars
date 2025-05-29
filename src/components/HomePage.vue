@@ -38,7 +38,10 @@ import leia from '../assets/leia.jpg'
 import owenLars from '../assets/owen-lars-main_08c717c8.jpeg'
 import beruWhitesun from '../assets/BeruWhitesun22BBY-SWCT-Photoroom.webp'
 import r5d4 from '../assets/r5-d4_main_image_7d5f078e.jpeg'
-import biggs from '../assets/open-uri20150608-27674-70be49_7dc0de33.jpeg'
+import biggs from '../assets/Biggsdarklighter-ANH.webp'
+import hanSolo from '../assets/Han-Solo.avif'
+import r2d2 from '../assets/r2d2.jpeg'
+import c3po from '../assets/c3po.jpeg'
 
 const characterImages = {
   'Luke Skywalker': lukeSkywalker,
@@ -48,7 +51,11 @@ const characterImages = {
   'Owen Lars': owenLars,
   'Beru Whitesun lars': beruWhitesun,
   'R5-D4': r5d4,
-  'Biggs Darklighter': biggs
+  'Biggs Darklighter': biggs,
+  'C-3PO': c3po, // Will use fallback avatar
+  'R2-D2': r2d2,
+  'Han Solo': hanSolo,
+  
 }
 
 const people = ref([])
